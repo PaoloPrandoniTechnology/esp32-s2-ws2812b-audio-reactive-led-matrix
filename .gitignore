@@ -1,0 +1,39 @@
+# ------------------------------------------------------------
+# Credenziali locali: NON devono finire in un repository pubblico
+# ------------------------------------------------------------
+include/config_secrets.h
+
+# ------------------------------------------------------------
+# Build PlatformIO
+# ------------------------------------------------------------
+.pio/
+.pioenvs/
+.piolibdeps/
+.vscode/
+*.pyc
+__pycache__/
+
+# ------------------------------------------------------------
+# Binari compilati e backup storici (restano solo in locale)
+# ------------------------------------------------------------
+*.bin
+backup_fw_*/
+backup_*/
+release_*/
+__BACKUP_main.cpp
+main_RC11j_backup.cpp.txt
+*.log
+sim_err.log
+sim_out.log
+
+# ------------------------------------------------------------
+# Note locali dell'editor / cache dei test
+# ------------------------------------------------------------
+.trae/
+.pytest_cache/
+
+# ------------------------------------------------------------
+# Sistema
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db

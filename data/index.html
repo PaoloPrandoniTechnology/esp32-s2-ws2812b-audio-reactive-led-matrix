@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giochi di Luce 8x32</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+    <!-- ============ Intestazione ============ -->
+    <header>
+        <div>
+            <h1>Giochi di Luce 8&times;32</h1>
+            <span class="sub">Matrice WS2812B + microfono INMP441</span>
+        </div>
+        <div class="hdr-right">
+            <span class="dot off" id="wsdot"></span>
+            <span id="wstxt">connessione&hellip;</span>
+            <a class="btn-link" href="/update">Aggiorna FW</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============ Colonna sinistra: effetti ============ -->
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Effetti</h2>
+                <div class="fx-nav">
+                    <button class="mini" id="prevBtn" title="Effetto precedente">&#9664;</button>
+                    <button class="mini" id="nextBtn" title="Effetto successivo">&#9654;</button>
+                    <button class="mini toggle" id="randBtn"
+                            title="Cambio automatico casuale ogni 30 secondi">Random</button>
+                </div>
+            </div>
+            <div class="fx-grid" id="fxGrid"></div>
+        </section>
+
+        <!-- ============ Colonna destra: controlli + meter ============ -->
+        <aside class="panel">
+            <h2>Controlli</h2>
+
+            <div class="ctrl">
+                <label for="brightness">Luminosit&agrave;</label>
+                <input type="range" id="brightness">
+                <output id="brightnessVal" class="mono">--</output>
+            </div>
+
+            <div class="ctrl">
+                <label for="speed">Velocit&agrave;</label>
+                <input type="range" id="speed">
+                <output id="speedVal" class="mono">--</output>
+            </div>
+
+            <div class="ctrl">
+                <label for="sensitivity">Sensibilit&agrave; audio</label>
+                <input type="range" id="sensitivity">
+                <output id="sensitivityVal" class="mono">--</output>
+            </div>
+
+            <div class="ctrl">
+                <label for="gainDb">Guadagno microfono (dB)</label>
+                <input type="range" id="gainDb">
+                <output id="gainDbVal" class="mono">--</output>
+            </div>
+
+            <div class="ctrl select-ctrl">
+                <label for="palette">Palette colori</label>
+                <select id="palette"></select>
+            </div>
+
+            <h2 class="mt">Segnale microfono</h2>
+            <div class="meter">
+                <div class="meter-row">
+                    <span class="mlabel">Livello</span>
+                    <span class="bar"><span id="barLevel"></span></span>
+                    <span class="mono" id="valLevel">0</span>
+                </div>
+                <div class="meter-row">
+                    <span class="mlabel">Bassi</span>
+                    <span class="bar"><span id="barBass" class="peak"></span></span>
+                    <span class="mono" id="valBass">0</span>
+                </div>
+                <div class="meter-row">
+                    <span class="mlabel">Medi</span>
+                    <span class="bar"><span id="barMid"></span></span>
+                    <span class="mono" id="valMid">0</span>
+                </div>
+                <div class="meter-row">
+                    <span class="mlabel">Alti</span>
+                    <span class="bar"><span id="barTreble" class="peak"></span></span>
+                    <span class="mono" id="valTreble">0</span>
+                </div>
+            </div>
+            <div class="meter-foot">
+                <span id="sigTxt">Mic: in attesa</span>
+                <span id="beatTxt">Beat: 0</span>
+            </div>
+
+            <div class="foot">
+                <a href="/debug" target="_blank">/debug</a>
+                <a href="/effects" target="_blank">/effects</a>
+            </div>
+        </aside>
+    </main>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
